@@ -1,0 +1,15 @@
+.{
+    .name = "secp256k1",
+    .version = "0.5.0",
+    .dependencies = .{
+        .secp256k1 = .{
+            .url = "git+https://github.com/bitcoin-core/secp256k1#e3a885d42a7800c1ccebad94ad1e2b82c4df5c65",
+            .hash = "122058eb168cdb543bd01b334328f264194ff4581f8fe505f611b4aa5a882cf44ef0",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
