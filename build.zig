@@ -15,7 +15,7 @@ pub fn build(b: *std.Build) void {
     lib.addIncludePath(upstream.path("src"));
 
     const translate_c = b.addTranslateC(.{
-        .root_source_file = upstream.path("include/secp256k1.h"),
+        .root_source_file = upstream.path("include/secp256k1_recovery.h"),
         .target = target,
         .optimize = optimize,
     });
