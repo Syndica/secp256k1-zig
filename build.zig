@@ -42,6 +42,8 @@ pub fn build(b: *std.Build) void {
         .flags = FLAGS,
         .files = &.{
             "src/secp256k1.c",
+            "src/precomputed_ecmult.c",
+            "src/precomputed_ecmult_gen.c",
         },
     });
 
