@@ -50,4 +50,5 @@ pub fn build(b: *std.Build) void {
 
 const FLAGS = &.{
     "-DENABLE_MODULE_RECOVERY",
+    "-DENABLE_MODULE_ECDH",
 };
