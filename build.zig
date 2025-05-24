@@ -4,7 +4,7 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const pic = b.option(bool, "pic", "Build library with PIC enabled");
+    const force_pic = b.option(bool, "force_pic", "Build library with PIC enabled");
 
     const upstream = b.dependency("secp256k1", .{});
     const translate_c = b.addTranslateC(.{
@@ -18,7 +18,7 @@ pub fn build(b: *std.Build) void {
         .root_module = b.createModule(.{
             .target = target,
             .optimize = optimize,
-            .pic = pic,
+            .pic = if (force_pic == true) true else null,
         }),
         .linkage = .static,
     });
