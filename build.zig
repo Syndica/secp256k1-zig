@@ -19,14 +19,14 @@ pub fn build(b: *std.Build) void {
             .target = target,
             .optimize = optimize,
             .pic = if (force_pic == true) true else null,
+            .link_libc = true,
         }),
         .linkage = .static,
     });
     b.installArtifact(lib);
 
-    lib.linkLibC();
-    lib.addIncludePath(upstream.path("include"));
-    lib.addCSourceFiles(.{
+    lib.root_module.addIncludePath(upstream.path("include"));
+    lib.root_module.addCSourceFiles(.{
         .root = upstream.path("."),
         .flags = FLAGS,
         .files = &.{
